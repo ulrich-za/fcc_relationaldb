@@ -49,7 +49,10 @@ SET default_table_access_method = heap;
 
 CREATE TABLE public.galaxy (
     galaxy_id integer NOT NULL,
-    name character varying(35) NOT NULL
+    name character varying(35) NOT NULL,
+    age_in_millions_of_years numeric(5,0),
+    number_of_studied_stars integer,
+    description text
 );
 
 
@@ -211,6 +214,12 @@ ALTER TABLE ONLY public.star ALTER COLUMN star_id SET DEFAULT nextval('public.st
 -- Data for Name: galaxy; Type: TABLE DATA; Schema: public; Owner: dev
 --
 
+INSERT INTO public.galaxy VALUES (1, 'Androsia', 8500, 3, 'A spiral galaxy with vibrant blue stars and a massive central black hole, known for its dense star clusters.');
+INSERT INTO public.galaxy VALUES (2, 'Zyphron', 12000, 7, 'A distant, elliptical galaxy with ancient stars, glowing softly with a mysterious greenish hue.');
+INSERT INTO public.galaxy VALUES (3, 'Celestara', 1200, 1, 'A young, irregular galaxy, brimming with nebulae and star formation, shining brightly in the cosmic night.');
+INSERT INTO public.galaxy VALUES (4, 'Veridion', 7200, 2, 'A barred spiral galaxy with emerald-green nebulae, known for its unusually high number of supernovae.');
+INSERT INTO public.galaxy VALUES (5, 'Noctara', 10300, 5, 'A dark, lenticular galaxy with a faint glow, home to numerous black holes and ancient, dim stars.');
+INSERT INTO public.galaxy VALUES (6, 'Aurivelle', 3400, 2, 'A starburst galaxy, teeming with young, massive stars, radiating a golden light across its vibrant arms.');
 
 
 --
@@ -235,7 +244,7 @@ ALTER TABLE ONLY public.star ALTER COLUMN star_id SET DEFAULT nextval('public.st
 -- Name: galaxy_galaxy_id_seq; Type: SEQUENCE SET; Schema: public; Owner: dev
 --
 
-SELECT pg_catalog.setval('public.galaxy_galaxy_id_seq', 1, false);
+SELECT pg_catalog.setval('public.galaxy_galaxy_id_seq', 6, true);
 
 
 --
